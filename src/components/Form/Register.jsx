@@ -63,7 +63,7 @@ const Register = () => {
   };
 
   return (
-    <div className="hero bg-base-200 min-h-screen w-full p-0 mt-20">
+    <div className="hero bg-base-200 min-h-screen w-full p-0 mt-20 lg:mt-0">
       <div className="hero-content flex flex-col-reverse lg:flex-row-reverse items-center gap-10 w-full max-w-6xl mx-auto px-4">
         {/* Animation */}
         <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-1/2">

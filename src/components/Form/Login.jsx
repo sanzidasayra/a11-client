@@ -101,7 +101,7 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4 py-10">
+    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4 py-10 mt-20 lg:mt-0">
       <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-10 w-full max-w-6xl">
         
         {/* Animation */}

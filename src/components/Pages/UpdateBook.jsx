@@ -11,7 +11,7 @@ const UpdateBook = () => {
   const navigate = useNavigate();
 
  useEffect(() => {
-  fetch(`https://a11-server-olive.vercel.app/books/${id}`)
+  fetch(`https://a11-server-s1ho.onrender.com/books/${id}`)
     .then(res => res.json())
     .then(data => {
       if (data.email !== user.email) {
@@ -40,7 +40,7 @@ const UpdateBook = () => {
     overview: form.overview.value,
   };
 
-  fetch(`https://a11-server-olive.vercel.app/books/${id}`, {
+  fetch(`https://a11-server-s1ho.onrender.com/books/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(updatedBook),

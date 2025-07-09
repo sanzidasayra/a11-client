@@ -6,7 +6,7 @@ const FeaturedCategories = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://a11-server-olive.vercel.app/books/categories')
+    fetch('https://a11-server-s1ho.onrender.com/books/categories')
       .then(res => res.json())
       .then(data => {
         console.log("Categories response:", data);

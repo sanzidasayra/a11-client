@@ -21,7 +21,7 @@ const BookDetails = () => {
       return;
     }
 
-    fetch(`https://a11-server-olive.vercel.app/books/${id}`, {
+    fetch(`https://a11-server-s1ho.onrender.com/books/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -50,7 +50,7 @@ const BookDetails = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://a11-server-olive.vercel.app/books/${id}/status`, {
+      const res = await fetch(`https://a11-server-s1ho.onrender.com/books/${id}/status`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const BookDetails = () => {
     setUpvoting(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://a11-server-olive.vercel.app/books/${id}/upvote`, {
+      const res = await fetch(`https://a11-server-s1ho.onrender.com/books/${id}/upvote`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -96,7 +96,7 @@ const BookDetails = () => {
       const result = await res.json();
 
       if (res.ok) {
-        const updated = await fetch(`https://a11-server-olive.vercel.app/books/${id}`, {
+        const updated = await fetch(`https://a11-server-s1ho.onrender.com/books/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -119,7 +119,7 @@ const BookDetails = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://a11-server-olive.vercel.app/books/${id}/reviews`, {
+      const res = await fetch(`https://a11-server-s1ho.onrender.com/books/${id}/reviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -150,7 +150,7 @@ const BookDetails = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://a11-server-olive.vercel.app/books/${id}/reviews`, {
+      const res = await fetch(`https://a11-server-s1ho.onrender.com/books/${id}/reviews`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -164,7 +164,7 @@ const BookDetails = () => {
         setReviewText("");
         setEditingReview(null);
         const updatedBook = await fetch(
-          `https://a11-server-olive.vercel.app/books/${id}`,
+          `https://a11-server-s1ho.onrender.com/books/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -187,7 +187,7 @@ const BookDetails = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`https://a11-server-olive.vercel.app/books/${id}/reviews`, {
+      const res = await fetch(`https://a11-server-s1ho.onrender.com/books/${id}/reviews`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -199,7 +199,7 @@ const BookDetails = () => {
       const result = await res.json();
       if (res.ok) {
         const updatedBook = await fetch(
-          `https://a11-server-olive.vercel.app/books/${id}`,
+          `https://a11-server-s1ho.onrender.com/books/${id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

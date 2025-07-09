@@ -12,13 +12,16 @@ const Bookshelf = () => {
   const queryParams = new URLSearchParams(location.search);
   const selectedCategory = queryParams.get('category'); 
 
-  const filteredBooks = books.filter(book => {
-    const titleMatch = book.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const authorMatch = book.author.toLowerCase().includes(searchTerm.toLowerCase());
-    const statusMatch = selectedStatus ? book.status === selectedStatus : true;
-    const categoryMatch = selectedCategory ? book.category === selectedCategory : true;
-    return (titleMatch || authorMatch) && statusMatch && categoryMatch;
-  });
+const filteredBooks = Array.isArray(books)
+  ? books.filter(book => {
+      const titleMatch = book.title.toLowerCase().includes(searchTerm.toLowerCase());
+      const authorMatch = book.author.toLowerCase().includes(searchTerm.toLowerCase());
+      const statusMatch = selectedStatus ? book.status === selectedStatus : true;
+      const categoryMatch = selectedCategory ? book.category === selectedCategory : true;
+      return (titleMatch || authorMatch) && statusMatch && categoryMatch;
+    })
+  : [];
+
 
   const handleBookClick = (id) => {
     navigate(`/books/${id}`); 

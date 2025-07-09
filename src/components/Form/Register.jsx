@@ -31,7 +31,7 @@ const Register = () => {
 
     createUser(email, password, name, photo)
       .then(async () => {
-        const tokenRes = await fetch('https://a11-server-olive.vercel.app/jwt', {
+        const tokenRes = await fetch('https://a11-server-s1ho.onrender.com/jwt', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email }),

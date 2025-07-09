@@ -13,7 +13,7 @@ const MyBooks = () => {
       const token = localStorage.getItem('token');
       if (!token) return;
 
-      fetch(`https://a11-server-olive.vercel.app/books?email=${user.email}`, {
+      fetch(`https://a11-server-s1ho.onrender.com/books?email=${user.email}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ const MyBooks = () => {
           return;
         }
 
-        fetch(`https://a11-server-olive.vercel.app/books/${id}`, {
+        fetch(`https://a11-server-s1ho.onrender.com/books/${id}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json',

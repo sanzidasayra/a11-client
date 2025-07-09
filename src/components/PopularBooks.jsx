@@ -43,7 +43,7 @@ const PopularBooks = ({ books }) => {
                   "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
                 }
                 alt={book.title}
-                className="rounded-xl object-cover w-full h-[250px] sm:h-[300px]"
+                className="rounded-xl object-cover w-full h-[410px] sm:h-[410px]"
               />
             </figure>
             <div className="card-body items-center text-center space-y-2 px-4">

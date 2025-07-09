@@ -40,6 +40,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      
 
       {/* Copyright */}
       <div className="text-center text-xs sm:text-sm mt-10 border-t border-white/20 pt-4 text-white/70">

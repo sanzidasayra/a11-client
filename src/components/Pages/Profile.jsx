@@ -18,7 +18,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/books?email=${user.email}`)
+      fetch(`https://a11-server-olive.vercel.app/books?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setBooks(data);

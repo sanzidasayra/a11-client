@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        loader: () => fetch('http://localhost:3000/books'),
+        loader: () => fetch('https://a11-server-olive.vercel.app/books'),
         Component: Home
       },
       {
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/bookshelf',
-        loader: () => fetch('http://localhost:3000/books'),
+        loader: () => fetch('https://a11-server-olive.vercel.app/books'),
         Component: Bookshelf
       },
       {

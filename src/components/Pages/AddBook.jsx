@@ -18,7 +18,7 @@ const AddBook = () => {
       return;
     }
 
-    fetch("http://localhost:3000/books", {
+    fetch("https://a11-server-olive.vercel.app/books", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

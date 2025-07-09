@@ -24,36 +24,51 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
-  const handleLogIn = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value.trim();
-    const password = e.target.password.value;
-    setError('');
+ const handleLogIn = (e) => {
+  e.preventDefault();
+  const email = e.target.email.value.trim();
+  const password = e.target.password.value;
+  setError('');
 
-    if (!email || !password) {
-      const message = 'Please enter both email and password.';
-      setError(message);
-      toast.error(message);
-      return;
-    }
+  if (!email || !password) {
+    const message = 'Please enter both email and password.';
+    setError(message);
+    toast.error(message);
+    return;
+  }
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
+  signInWithEmailAndPassword(auth, email, password)
+    .then(async () => {
+      // Once login is successful, get the JWT token
+      const tokenRes = await fetch('https://a11-server-s1ho.onrender.com/jwt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }), 
+      });
+
+      const data = await tokenRes.json();
+      if (data.token) {
+        localStorage.setItem('token', data.token);
         toast.success('Login successful!');
         navigate(from, { replace: true });
-      })
-      .catch((firebaseError) => {
-        console.error("Firebase login error:", firebaseError);
-        const errorMessage =
-          firebaseError.code === 'auth/invalid-credential' ||
-          firebaseError.code === 'auth/user-not-found' ||
-          firebaseError.code === 'auth/wrong-password'
-            ? 'Invalid email or password.'
-            : firebaseError.message || 'Login failed. Please try again.';
-        toast.error(errorMessage);
-        setError(errorMessage);
-      });
-  };
+      } else {
+        toast.error('Failed to fetch token');
+        setError('Failed to fetch token');
+      }
+    })
+    .catch((firebaseError) => {
+      console.error("Firebase login error:", firebaseError);
+      const errorMessage =
+        firebaseError.code === 'auth/invalid-credential' ||
+        firebaseError.code === 'auth/user-not-found' ||
+        firebaseError.code === 'auth/wrong-password'
+          ? 'Invalid email or password.'
+          : firebaseError.message || 'Login failed. Please try again.';
+      toast.error(errorMessage);
+      setError(errorMessage);
+    });
+};
+
 
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();

@@ -48,19 +48,35 @@ const Register = () => {
       });
   };
 
-  const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
-    setErrorMessage('');
-    try {
-      const result = await signInWithPopup(auth, provider);
+const handleGoogleLogin = async () => {
+  const provider = new GoogleAuthProvider();
+  setErrorMessage('');
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const userEmail = result.user.email;
+
+    const tokenRes = await fetch('https://a11-server-s1ho.onrender.com/jwt', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: userEmail }), 
+    });
+
+    const data = await tokenRes.json();
+    if (data.token) {
+      localStorage.setItem('token', data.token);
       toast.success('Google login successful!');
-      navigate('/');
-    } catch (googleError) {
-      console.error("Google login error:", googleError);
-      toast.error(`Google login failed: ${googleError.message}`);
-      setErrorMessage(googleError.message);
+      navigate('/'); 
+    } else {
+      toast.error('Failed to fetch token');
+      setErrorMessage('Failed to fetch token');
     }
-  };
+  } catch (googleError) {
+    console.error("Google login error:", googleError);
+    toast.error(`Google login failed: ${googleError.message}`);
+    setErrorMessage(googleError.message);
+  }
+};
+
 
   return (
     <div className="hero bg-base-200 min-h-screen w-full p-0 mt-20 lg:mt-0">

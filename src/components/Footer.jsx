@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'; // Added the icons for contact
 import logo from '../assets/logo.webp';
 
 const Footer = () => {
@@ -16,12 +16,21 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Contact Info */}
+        {/* Contact Info with Icons */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
-          <p className="text-sm text-white/90">📧 support@storymint.com</p>
-          <p className="text-sm text-white/90">📞 +880 1234-567890</p>
-          <p className="text-sm text-white/90">📍 Dhaka, Bangladesh</p>
+          <div className="flex items-center space-x-2 mb-2 text-white/90">
+            <FaEnvelope size={18} />
+            <p className="text-sm">support@storymint.com</p>
+          </div>
+          <div className="flex items-center space-x-2 mb-2 text-white/90">
+            <FaPhone size={18} />
+            <p className="text-sm">+880 1234-567890</p>
+          </div>
+          <div className="flex items-center space-x-2 text-white/90">
+            <FaMapMarkerAlt size={18} />
+            <p className="text-sm">Dhaka, Bangladesh</p>
+          </div>
         </div>
 
         {/* Quick Links + Socials */}
@@ -33,14 +42,13 @@ const Footer = () => {
             <li><a href="#" className="hover:underline text-white/90">Support</a></li>
           </ul>
           <div className="flex gap-4 mt-4 text-xl">
-            <a href="#" className="hover:text-green-300 transition"><FaFacebookF /></a>
-            <a href="#" className="hover:text-green-300 transition"><FaTwitter /></a>
-            <a href="#" className="hover:text-green-300 transition"><FaInstagram /></a>
-            <a href="#" className="hover:text-green-300 transition"><FaLinkedinIn /></a>
+            <a href="https://www.facebook.com" className="hover:text-green-300 transition"><FaFacebookF /></a>
+            <a href="https://twitter.com" className="hover:text-green-300 transition"><FaTwitter /></a>
+            <a href="https://www.instagram.com" className="hover:text-green-300 transition"><FaInstagram /></a>
+            <a href="https://www.linkedin.com" className="hover:text-green-300 transition"><FaLinkedinIn /></a>
           </div>
         </div>
       </div>
-      
 
       {/* Copyright */}
       <div className="text-center text-xs sm:text-sm mt-10 border-t border-white/20 pt-4 text-white/70">

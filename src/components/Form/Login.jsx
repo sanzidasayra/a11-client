@@ -1,11 +1,16 @@
 /* eslint-disable no-unused-vars */
 import Lottie from 'lottie-react';
 import loginData from '../../assets/login.json.json';
-import { Link, useLocation, useNavigate } from 'react-router'; 
+import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { useRef, useState } from 'react';
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../../firebase/Firebase'; 
+import {
+  signInWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
+} from 'firebase/auth';
+import { auth } from '../../firebase/Firebase';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 
@@ -13,7 +18,7 @@ const Login = () => {
   const [error, setError] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [emailForReset, setEmailForReset] = useState('');
-  const [isResetMode, setIsResetMode] = useState(false); 
+  const [isResetMode, setIsResetMode] = useState(false);
   const emailRef = useRef();
   const navigate = useNavigate();
   const location = useLocation();
@@ -50,33 +55,32 @@ const Login = () => {
       });
   };
 
-const handleGoogleLogin = async () => {
-  const provider = new GoogleAuthProvider();
-  setError('');
-  try {
-    const result = await signInWithPopup(auth, provider);
-    const userEmail = result.user.email;
+  const handleGoogleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    setError('');
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const userEmail = result.user.email;
 
-    const tokenRes = await fetch('https://a11-server-olive.vercel.app/jwt', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: userEmail }),
-    });
+      const tokenRes = await fetch('https://a11-server-olive.vercel.app/jwt', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: userEmail }),
+      });
 
-    const data = await tokenRes.json();
-    localStorage.setItem('token', data.token); 
-    toast.success('Google login successful!');
-    navigate('/'); 
-  } catch (googleError) {
-    console.error("Google login error:", googleError);
-    toast.error(`Google login failed: ${googleError.message}`);
-    setError(googleError.message);
-  }
-};
-
+      const data = await tokenRes.json();
+      localStorage.setItem('token', data.token);
+      toast.success('Google login successful!');
+      navigate('/');
+    } catch (googleError) {
+      console.error("Google login error:", googleError);
+      toast.error(`Google login failed: ${googleError.message}`);
+      setError(googleError.message);
+    }
+  };
 
   const handleForgetPassword = () => {
-    setIsResetMode(true);  
+    setIsResetMode(true);
   };
 
   const handleResetPassword = () => {
@@ -88,7 +92,7 @@ const handleGoogleLogin = async () => {
     sendPasswordResetEmail(auth, emailForReset)
       .then(() => {
         toast.success('Password reset email sent!');
-        setIsResetMode(false); 
+        setIsResetMode(false);
       })
       .catch((error) => {
         console.error("Error resetting password:", error);
@@ -97,36 +101,39 @@ const handleGoogleLogin = async () => {
   };
 
   return (
-    <div className="hero bg-base-200 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left">
-          <Lottie style={{ width: '300px' }} animationData={loginData} loop={true} />
+    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4 py-10">
+      <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-10 w-full max-w-6xl">
+        
+        {/* Animation */}
+        <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-1/2">
+          <Lottie animationData={loginData} loop={true} />
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <h1 className='font-semibold text-center text-3xl pb-2 text-[#808000] p-8 lg:p-0'>
-            Login Your Account
-          </h1>
+
+        {/* Card */}
+        <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
+          <h1 className="text-3xl font-semibold text-center text-[#808000] pt-6">Login Your Account</h1>
           <div className="card-body">
-            
             {!isResetMode ? (
-              <form onSubmit={handleLogIn}>
-                <label className="label">Email</label>
-                <input type="email" name="email" className="input input-bordered w-full" placeholder="Email" />
+              <form onSubmit={handleLogIn} className="space-y-4">
+                <div>
+                  <label className="label">Email</label>
+                  <input type="email" name="email" className="input input-bordered w-full" placeholder="Email" />
+                </div>
 
                 <div>
-                  <label className="label font-semibold text-gray-700 dark:text-gray-300">Password</label>
+                  <label className="label">Password</label>
                   <div className="relative">
                     <input
                       type={showPassword ? 'text' : 'password'}
                       name="password"
-                      className="input input-bordered w-full pr-10 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                      className="input input-bordered w-full pr-10"
                       placeholder="Enter your password"
                       required
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className='btn btn-ghost btn-xs absolute top-2 right-6'
+                      className="btn btn-ghost btn-xs absolute top-2 right-4"
                     >
                       {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </button>
@@ -137,25 +144,28 @@ const handleGoogleLogin = async () => {
                   <a onClick={handleForgetPassword} className="link link-hover">Forgot password?</a>
                 </div>
 
-                <button className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#4F7942] to-[#808000] hover:scale-105 mt-4">
+                <button className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#4F7942] to-[#808000] hover:scale-105 transition">
                   Login
                 </button>
 
-                <button type="button" className="btn btn-outline w-full rounded-lg border-gray-300 hover:bg-gray-100 dark:border-gray-600 dark:hover:bg-gray-700 dark:text-gray-300 mt-3" onClick={handleGoogleLogin}>
-                  <FcGoogle size={24} className="mr-2" /> Login with Google
+                <button
+                  type="button"
+                  onClick={handleGoogleLogin}
+                  className="btn btn-outline w-full flex items-center justify-center gap-2 mt-3"
+                >
+                  <FcGoogle size={24} /> Login with Google
                 </button>
 
-                <p className="font-semibold text-gray-700 pt-5 text-center">
+                <p className="text-center text-gray-700 pt-5">
                   Don’t have an account?{' '}
                   <Link to="/register" className="text-[#808000] font-bold hover:underline">
                     Register
                   </Link>
                 </p>
 
-                {error && <p className="text-red-600 mt-2">{error}</p>}
+                {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
               </form>
             ) : (
-              
               <div className="space-y-4">
                 <label className="label">Enter your email to reset the password</label>
                 <input
@@ -168,16 +178,19 @@ const handleGoogleLogin = async () => {
                 <button
                   type="button"
                   onClick={handleResetPassword}
-                  className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#4F7942] to-[#808000] hover:scale-105 mt-4"
+                  className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#4F7942] to-[#808000] hover:scale-105 transition"
                 >
                   Reset Password
                 </button>
-                <p className="font-semibold text-gray-700 pt-5 text-center">
-                  <span onClick={() => setIsResetMode(false)} className="text-[#808000] font-bold hover:underline cursor-pointer">
+                <p className="text-center text-gray-700 pt-5">
+                  <span
+                    onClick={() => setIsResetMode(false)}
+                    className="text-[#808000] font-bold hover:underline cursor-pointer"
+                  >
                     Back to Login
                   </span>
                 </p>
-                {error && <p className="text-red-600 mt-2">{error}</p>}
+                {error && <p className="text-red-600 text-sm mt-2">{error}</p>}
               </div>
             )}
           </div>

@@ -6,6 +6,14 @@ StoryMint is a vibrant, community-driven web platform that helps readers discove
 
 ---
 
+## 🌐 Live Demo  
+[🔗 Visit StoryMint](https://aelevenclient.vercel.app/)
+
+## 🖼 Screenshot
+![Plant Care StoryMint](https://i.ibb.co.com/5XQCtYZ4/Screenshot-2025-08-08-191555.png)
+
+
+
 ## 🌟 Key Features
 
 ### 📖 Discover New Worlds through Books  
@@ -85,11 +93,11 @@ Select the vibe you love most and discover your perfect book match:
 
 ---
 
-## 📬 Contact Us
+📬 Contact
+Sanzida Sayra
+📧 Email: sanzidasayra@gmail.com
+🔗 LinkedIn: [linkedin.com/in/sanzida-sayra](https://www.linkedin.com/in/sanzida-sayra/)
+💻 GitHub: [github.com/sanzidasayra](https://github.com/sanzidasayra)
 
-For support, feedback, or inquiries:  
-📧 **[Contact Us](mailto:support@storymint.com)**
-
----
 
 **Made with ❤️ by the StoryMint Team**

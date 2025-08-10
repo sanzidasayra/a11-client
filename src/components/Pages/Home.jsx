@@ -5,6 +5,7 @@ import PopularBooks from '../PopularBooks';
 import { useLoaderData } from 'react-router';
 import FeaturedCategories from '../FeaturedCategories ';
 import PersonalityMatcher from '../PersonalityMatcher';
+import CustomerReviews from '../CustomerReviews';
 
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
            <FeaturedCategories></FeaturedCategories>
            <PersonalityMatcher></PersonalityMatcher>
            <MonthlyHighlights></MonthlyHighlights>
+           <CustomerReviews></CustomerReviews>
            </div>
         </div>
     );

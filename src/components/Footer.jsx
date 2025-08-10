@@ -6,7 +6,7 @@ import { NavLink } from 'react-router';
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-[#4F7942] to-[#808000] text-white px-4 sm:px-6 lg:px-16 py-10 lg:mt-15 md:mt-10 mt-5">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         
         {/* Logo & Intro */}
         <div className="flex items-start gap-4">

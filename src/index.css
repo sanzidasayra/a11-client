@@ -3,6 +3,12 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
 *{
    font-family: "Fraunces", serif;
 }

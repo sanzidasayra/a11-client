@@ -6,6 +6,7 @@ import { useLoaderData } from 'react-router';
 import FeaturedCategories from '../FeaturedCategories ';
 import PersonalityMatcher from '../PersonalityMatcher';
 import CustomerReviews from '../CustomerReviews';
+import SalesPromotion from '../SalesPromotion';
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
         <div>
            
            <Banner></Banner>
+           <SalesPromotion></SalesPromotion>
            <div className="w-8/12 mx-auto">
             <PopularBooks books={books}></PopularBooks>
            <FeaturedCategories></FeaturedCategories>

@@ -21,7 +21,7 @@ const PersonalityMatcher = () => {
   return (
     <section className="my-16 px-4 sm:px-6 lg:px-8">
       <motion.div
-        className="max-w-8xl mx-auto bg-gradient-to-r from-green-100 to-lime-50 rounded-lg p-5 sm:p-8 rounded-xl shadow-md"
+        className="max-w-8xl mx-auto bg-gradient-to-r from-green-100 to-lime-50 rounded-lg p-5 sm:p-8 shadow-md"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

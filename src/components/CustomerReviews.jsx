@@ -63,7 +63,7 @@ const CustomerReviews = () => {
       <h2 className="text-3xl font-bold text-center mb-10 text-green-900">
         What Our Readers Say
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6">
         {reviews.map(({ id, name, avatar, rating, comment }) => (
           <div
             key={id}

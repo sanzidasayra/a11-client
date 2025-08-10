@@ -15,11 +15,14 @@ const Home = () => {
 
     return (
         <div>
+           
            <Banner></Banner>
-           <PopularBooks books={books}></PopularBooks>
+           <div className="w-8/12 mx-auto">
+            <PopularBooks books={books}></PopularBooks>
            <FeaturedCategories></FeaturedCategories>
            <PersonalityMatcher></PersonalityMatcher>
            <MonthlyHighlights></MonthlyHighlights>
+           </div>
         </div>
     );
 };

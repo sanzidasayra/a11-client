@@ -6,7 +6,7 @@ const MonthlyHighlights = () => {
 
   return (
     <section className="my-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto p-6 sm:p-8 bg-gradient-to-r from-green-100 to-lime-50 rounded-lg shadow-md">
+      <div className="max-w-8xl mx-auto p-6 sm:p-8 bg-gradient-to-r from-green-100 to-lime-50 rounded-lg shadow-md">
         <div className="flex flex-col items-center justify-center mb-8">
           <div className="flex items-center gap-3 flex-wrap justify-center text-center">
             <FaCalendar className="text-3xl sm:text-4xl text-green-700" />

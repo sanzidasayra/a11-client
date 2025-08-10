@@ -6,6 +6,9 @@
 *{
    font-family: "Fraunces", serif;
 }
+body{
+  background-color: #ECFDF5;
+}
 
 .glass {
 background: rgba(255, 46, 0, 0.42);

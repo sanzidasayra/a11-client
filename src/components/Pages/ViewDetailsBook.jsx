@@ -230,6 +230,8 @@ const BookDetails = () => {
   const isOwner = user?.email === book.email;
 
   return (
+    <>
+    <div className="mt-25 ">
     <div className="max-w-3xl mx-auto mt-10 p-6 rounded-xl shadow-2xl bg-[#f3fce7]">
       <div className="flex flex-col md:flex-row gap-6">
         <img
@@ -380,6 +382,8 @@ const BookDetails = () => {
         </button>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 

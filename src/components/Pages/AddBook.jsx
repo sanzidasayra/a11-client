@@ -42,7 +42,7 @@ const AddBook = () => {
   };
 
   return (
-    <div className="px-4 sm:px-8 pb-10 mt-20 border border-[#808000] rounded-3xl shadow-2xl bg-[#a3b84d] max-w-5xl mx-auto">
+    <div className="px-4 sm:px-8 pb-10 mt-20 border border-[#808000] rounded-3xl shadow-2xl bg-[#a3b84d] max-w-7xl mx-auto">
       <div className="text-center py-10">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
           Add Books

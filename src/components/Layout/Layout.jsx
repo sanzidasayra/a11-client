@@ -8,8 +8,8 @@ const Layout = () => {
         <div>
             <div className='w-8/12 mx-auto'>
                 <Navbar></Navbar>
-                <Outlet></Outlet>
             </div>
+                <Outlet></Outlet>
             <Footer></Footer>
         </div>
     );

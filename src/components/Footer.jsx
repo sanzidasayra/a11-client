@@ -4,7 +4,7 @@ import logo from '../assets/logo.webp';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-blue-900 via-purple-900 to-pink-900 opacity-90 text-white mt-10 px-4 sm:px-6 lg:px-16 py-10">
+    <footer className="bg-gradient-to-r from-[#4F7942] to-[#808000] text-white mt-10 px-4 sm:px-6 lg:px-16 py-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         
         {/* Logo & Intro */}

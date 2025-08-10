@@ -41,7 +41,7 @@ const Profile = () => {
   }, [user?.email]);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 pt-24">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 pt-24">
       {/* Profile Card */}
       <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 mb-10">
         <img

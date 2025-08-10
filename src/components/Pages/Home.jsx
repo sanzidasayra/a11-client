@@ -20,7 +20,7 @@ const Home = () => {
            
            <Banner></Banner>
            <SalesPromotion></SalesPromotion>
-           <div className="w-8/12 mx-auto">
+           <div className="w-11/12 sm:w-10/12 md:w-10/12 lg:w-8/12 mx-auto">
             <PopularBooks books={books}></PopularBooks>
            <FeaturedCategories></FeaturedCategories>
            <PersonalityMatcher></PersonalityMatcher>

@@ -1,10 +1,11 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'; // Added the icons for contact
+import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'; 
 import logo from '../assets/logo.webp';
+import { NavLink } from 'react-router';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#4F7942] to-[#808000] text-white mt-10 px-4 sm:px-6 lg:px-16 py-10">
+    <footer className="bg-gradient-to-r from-[#4F7942] to-[#808000] text-white px-4 sm:px-6 lg:px-16 py-10 lg:mt-15 md:mt-10 mt-5">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         
         {/* Logo & Intro */}
@@ -37,10 +38,22 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
           <ul className="space-y-1 text-sm">
-            <li><a href="#" className="hover:underline text-white/90">Terms & Conditions</a></li>
-            <li><a href="#" className="hover:underline text-white/90">Privacy Policy</a></li>
-            <li><a href="#" className="hover:underline text-white/90">Support</a></li>
-          </ul>
+  <li>
+    <NavLink to="/terms" className="hover:underline text-white/90">
+      Terms & Conditions
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/privacy" className="hover:underline text-white/90">
+      Privacy Policy
+    </NavLink>
+  </li>
+  <li>
+    <NavLink to="/support" className="hover:underline text-white/90">
+      Support
+    </NavLink>
+  </li>
+</ul>
           <div className="flex gap-4 mt-4 text-xl">
             <a href="https://www.facebook.com" className="hover:text-green-300 transition"><FaFacebookF /></a>
             <a href="https://twitter.com" className="hover:text-green-300 transition"><FaTwitter /></a>

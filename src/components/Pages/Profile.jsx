@@ -42,12 +42,11 @@ const Profile = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 pt-24">
-      {/* Profile Card */}
       <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 mb-10">
         <img
           src={user?.photoURL}
           alt="profile"
-          className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-green-400"
+          className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-[#4F7942]"
         />
         <div className="text-center sm:text-left">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-800 break-words">
@@ -60,9 +59,8 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Chart */}
       <div className="bg-white shadow-lg rounded-2xl p-6">
-        <h3 className="text-lg sm:text-xl font-semibold mb-4 text-center">
+        <h3 className="text-lg sm:text-xl font-semibold  text-center">
           Books by Category
         </h3>
         {categoryData.length ? (

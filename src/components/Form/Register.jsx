@@ -79,15 +79,14 @@ const handleGoogleLogin = async () => {
 
 
   return (
-    <div className="hero bg-base-200 min-h-screen w-full p-0 mt-20 lg:mt-0">
+    <div className="hero bg-green-50 min-h-screen w-full p-0 mt-15 lg:mt-0">
       <div className="hero-content flex flex-col-reverse lg:flex-row-reverse items-center gap-10 w-full max-w-6xl mx-auto px-4">
         {/* Animation */}
         <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-1/2">
           <Lottie animationData={registerData} loop={true} />
         </div>
 
-        {/* Card */}
-        <div className="card bg-base-100 w-full max-w-md lg:max-w-xl shadow-2xl p-4 sm:p-6 lg:p-8 mx-0">
+        <div className="card bg-base-100 w-full max-w-md lg:max-w-xl shadow-2xl p-4 sm:p-6 lg:p-8 mx-0 mt-10">
           <h1 className="font-semibold text-center text-3xl text-[#808000] py-4">Register Your Account</h1>
           <div className="card-body space-y-4 p-0">
             <form onSubmit={handleRegister} className="space-y-4">

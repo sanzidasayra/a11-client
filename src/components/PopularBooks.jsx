@@ -18,7 +18,7 @@ const PopularBooks = ({ books }) => {
 
   return (
     <>
-      <div className="space-y-4 text-center mt-20 mb-10 px-4 sm:px-6 lg:px-8">
+      <div className="space-y-4 text-center mt-5 mb-10 px-4 sm:px-6 lg:px-8">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-green-900">
           Popular Books
         </h1>
@@ -27,7 +27,7 @@ const PopularBooks = ({ books }) => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8 pb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-6 lg:px-8 pb-10">
         {popularBooks.map((book) => (
           <div
             key={book._id}

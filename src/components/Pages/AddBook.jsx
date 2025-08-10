@@ -42,12 +42,12 @@ const AddBook = () => {
   };
 
   return (
-    <div className="px-4 sm:px-8 pb-10 mt-20 border border-[#808000] rounded-3xl shadow-2xl bg-[#a3b84d] max-w-7xl mx-auto">
+    <div className="px-4 sm:px-8 pb-10 mt-20 border border-[#808000] rounded-3xl shadow-2xl bg-gradient-to-r from-[#4F7942] to-[#808000] w-11/12 sm:w-10/12 md:w-10/12 lg:w-8/12 mx-auto">
       <div className="text-center py-10">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-green-900">
           Add Books
         </h1>
-        <p className="text-gray-700 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
+        <p className="text-green-900 text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
           Share your favorite reads by adding book titles with key details.
           Include the author, cover photo, category, and reading status to
           build a complete and personalized digital bookshelf.

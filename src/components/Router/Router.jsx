@@ -15,6 +15,9 @@ import ErrorPage from "../ErrorPage";
 import UpdateBook from "../Pages/UpdateBook";
 import PrivateRoute from "../../PrivateRoute";
 import AboutUs from "../Pages/AboutUs";
+import TermsAndConditions from "../Pages/TermsAndConditions";
+import PrivacyPolicy from "../Pages/PrivacyPolicy";
+import Support from "../Pages/Support";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +87,18 @@ const router = createBrowserRouter([
       {
         path: 'about',
         Component: AboutUs
+      },
+      {
+        path: 'terms',
+        Component: TermsAndConditions
+      },
+      {
+        path: 'privacy',
+        Component: PrivacyPolicy
+      },
+      {
+        path: 'support',
+        Component: Support
       }
     ]
   }

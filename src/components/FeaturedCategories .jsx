@@ -16,7 +16,7 @@ const FeaturedCategories = () => {
 
   return (
     <>
-    <div className="my-14 px-4 sm:px-6 md:px-10 max-w-8xl mx-auto">
+    <div className="my-5 px-4 sm:px-6 md:px-10 max-w-8xl mx-auto">
       <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-green-900 mb-8">
         Featured Categories
       </h2>

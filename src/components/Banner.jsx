@@ -43,7 +43,7 @@ const Banner = () => {
               className="text-sm sm:text-base md:text-xl"
               data-swiper-parallax="-200"
             >
-              Immerse yourself in captivating stories from various genres including fantasy, fiction, adventure, and more. <br /> Discover authors and books that transport you to different worlds.
+              Immerse yourself in captivating stories from various genres including fantasy, fiction, adventure, and more. <br className="hidden lg:inline" /> Discover authors and books that transport you to different worlds.
             </p>
           </div>
         </SwiperSlide>
@@ -60,7 +60,7 @@ const Banner = () => {
               className="text-sm sm:text-base md:text-xl"
               data-swiper-parallax="-200"
             >
-              Keep track of all the books you've read, your current reads, and your reading goals. Update your reading status <br /> and stay motivated to achieve your personal milestones.
+              Keep track of all the books you've read, your current reads, and your reading goals. Update your reading status <br className="hidden lg:inline" /> and stay motivated to achieve your personal milestones.
             </p>
           </div>
         </SwiperSlide>
@@ -77,7 +77,7 @@ const Banner = () => {
               className="text-sm sm:text-base md:text-xl"
               data-swiper-parallax="-200"
             >
-              Help others by sharing your thoughts and reviews. Rate books you've read and discover community favorites. Engage with fellow <br /> readers and contribute to book discussions.
+              Help others by sharing your thoughts and reviews. Rate books you've read and discover community favorites. Engage with fellow <br className="hidden lg:inline" /> readers and contribute to book discussions.
             </p>
           </div>
         </SwiperSlide>

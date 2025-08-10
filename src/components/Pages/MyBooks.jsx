@@ -79,7 +79,7 @@ const MyBooks = () => {
       ) : (
         <div className="overflow-x-auto max-w-7xl mx-auto">
           <table className="table w-full min-w-[640px] text-sm sm:text-base">
-            <thead className="bg-green-200 text-green-900">
+            <thead className="bg-[#4F7942] text-green-950">
               <tr>
                 <th>#</th>
                 <th>Cover</th>

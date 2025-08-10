@@ -232,7 +232,7 @@ const BookDetails = () => {
   return (
     <>
     <div className="pt-15 ">
-    <div className="max-w-3xl mx-auto mt-10 p-6 rounded-xl shadow-2xl bg-[#f3fce7]">
+    <div className="w-11/12 sm:w-10/12 md:w-9/12 lg:w-8/12 mx-auto mt-10 p-6 rounded-xl shadow-2xl bg-[#f3fce7]">
       <div className="flex flex-col md:flex-row gap-6">
         <img
           src={book.photo}

@@ -20,16 +20,17 @@ const Navbar = () => {
       : "hover:text-green-700 px-3 py-2";
 
   return (
-   <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md">
-  <div className="w-11/12 md:w-10/12 lg:w-8/12 mx-auto px-2 sm:px-4">
+   <nav className="fixed top-0 left-0 right-0 z-50 bg-green-50 shadow-md">
+  <div className="mx-auto px-2 sm:px-4 max-w-screen-xl w-full flex items-center h-16">
     <div className="flex items-center h-16 w-full">
 
-      <div className="flex items-center gap-2">
-        <img src={logo} alt="StoryMint Logo" className="h-10 hidden sm:block" />
-        <span className="text-xl font-bold text-green-900">StoryMint</span>
-      </div>
+      <div className="flex items-center gap-2 ml-6">
+  <img src={logo} alt="StoryMint Logo" className="h-10 hidden sm:block" />
+  <span className="text-xl font-bold text-green-900 relative top-1">StoryMint</span>
+</div>
 
-<div className="hidden lg:flex flex-1 justify-center space-x-4 text-sm items-center">
+
+<div className="hidden lg:flex flex-1 justify-center space-x-4 text-sm items-center max-w-8/12 mx-auto">
   <NavLink to="/" className={navLinkClass}>Home</NavLink>
 
   {!user && (
@@ -52,7 +53,7 @@ const Navbar = () => {
         {user ? (
           <button
             onClick={handleLogOut}
-            className="btn bg-red-800 text-white text-sm px-4 py-2 rounded flex items-center gap-2 hover:brightness-110 transition"
+            className="btn bg-red-800 text-white text-sm px-4 py-2 rounded flex items-center gap-2 hover:brightness-110 transition mr-6"
           >
             <LuLogOut size={18} />
             Logout
@@ -67,7 +68,7 @@ const Navbar = () => {
             </NavLink>
             <NavLink
               to="/register"
-              className="btn bg-gradient-to-r from-[#4F7942] to-[#808000] text-white text-sm px-4 py-2 hover:brightness-110 transition rounded"
+              className="btn bg-gradient-to-r from-[#4F7942] to-[#808000] text-white text-sm px-4 py-2 hover:brightness-110 transition rounded mr-6"
             >
               Register
             </NavLink>
@@ -76,7 +77,7 @@ const Navbar = () => {
       </div>
 
       <div className="lg:hidden dropdown dropdown-end ml-auto">
-        <button tabIndex={0} className="btn btn-ghost">
+        <button tabIndex={0} className="btn btn-ghost bg-[#4F7942]">
           <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2"
             viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />

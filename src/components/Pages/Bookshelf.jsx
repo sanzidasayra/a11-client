@@ -48,8 +48,8 @@ const Bookshelf = () => {
   };
 
   return (
-    <div className="mt-15 rounded-3xl p-6 min-h-screen w-8/12 mx-auto">
-      <h1 className="text-3xl font-bold text-center text-green-800 mb-10">Bookshelf</h1>
+    <div className="mt-15 rounded-3xl p-6 min-h-screen w-11/12 sm:w-10/12 md:w-10/12 lg:w-8/12 mx-auto">
+      <h1 className="text-3xl font-bold text-center text-green-800 mb-5">Bookshelf</h1>
       {selectedCategory && (
         <h3 className="text-center text-lg font-semibold text-green-700 mb-4">
           Showing books in <span className="underline">{selectedCategory}</span> category
@@ -91,7 +91,7 @@ const Bookshelf = () => {
       {currentBooks.length === 0 ? (
         <p className="text-center text-gray-500 text-xl">No books available based on your filter.</p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {currentBooks.map(book => (
             <div
               key={book._id}

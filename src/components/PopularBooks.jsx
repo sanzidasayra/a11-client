@@ -53,7 +53,7 @@ const PopularBooks = ({ books }) => {
                 {book.overview ? book.overview.slice(0, 100) + "..." : "No description available."}
               </p>
 
-              <div className="flex items-center gap-2 text-blue-600 mt-4">
+              <div className="flex items-center mt-4 text-green-700 gap-2 justify-center ">
                 <FaThumbsUp />
                 <span className="font-semibold">{book.upvote || 0} upvotes</span>
               </div>

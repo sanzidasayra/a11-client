@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../context/AuthContext';
+import Loader from '../Loader';
 
 const MyBooks = () => {
   const { user } = useContext(AuthContext);
@@ -73,10 +74,10 @@ const MyBooks = () => {
 
       {myBooks.length === 0 ? (
         <p className="text-center text-gray-500 text-lg sm:text-xl">
-          You haven't added any books yet.
+          <Loader />
         </p>
       ) : (
-        <div className="overflow-x-auto w-full">
+        <div className="overflow-x-auto max-w-7xl mx-auto">
           <table className="table w-full min-w-[640px] text-sm sm:text-base">
             <thead className="bg-green-200 text-green-900">
               <tr>

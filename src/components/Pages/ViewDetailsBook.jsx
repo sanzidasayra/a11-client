@@ -231,7 +231,7 @@ const BookDetails = () => {
 
   return (
     <>
-    <div className="mt-25 ">
+    <div className="pt-15 ">
     <div className="max-w-3xl mx-auto mt-10 p-6 rounded-xl shadow-2xl bg-[#f3fce7]">
       <div className="flex flex-col md:flex-row gap-6">
         <img
@@ -269,11 +269,13 @@ const BookDetails = () => {
 
                 {book.status === "Currently Reading" && (
                   <button
-                    onClick={() => updateReadingStatus("Read")}
-                    className="px-4 py-2 bg-green-700 text-white rounded-full hover:bg-green-800"
-                  >
-                    Mark as Read
-                  </button>
+  onClick={() => updateReadingStatus("Read")}
+  className="px-4 py-2 bg-gradient-to-r from-[#4F7942] to-[#808000] text-white rounded-full whitespace-nowrap"
+  style={{ minWidth: '120px' }}
+>
+  Mark as Read
+</button>
+
                 )}
               </div>
             )}
@@ -365,7 +367,7 @@ const BookDetails = () => {
           ) : (
             <button
               onClick={postReview}
-              className="mt-2 px-6 py-2 bg-green-700 text-white rounded-full hover:bg-green-800"
+              className="mt-2 px-6 py-2 bg-gradient-to-r from-[#4F7942] to-[#808000] text-white rounded-full"
             >
               Submit Review
             </button>

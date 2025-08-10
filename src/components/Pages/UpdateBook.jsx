@@ -57,8 +57,8 @@ const UpdateBook = () => {
   if (!book) return <p className="text-center mt-10"><Loader/></p>;
 
   return (
-    <form onSubmit={handleUpdate} className="p-6 mt-15">
-      <h2 className="text-2xl font-bold mb-4 text-center">Update Book</h2>
+    <form onSubmit={handleUpdate} className="p-6 mt-15 w-11/12 sm:w-10/12 md:w-10/12 lg:w-8/12 mx-auto">
+      <h2 className="text-2xl font-bold mb-4 text-center text-green-900">Update Book</h2>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         <Input name="name" defaultValue={book.name} label="Name " />
         <Input name="email" defaultValue={book.email} label="Email" readOnly />
@@ -72,13 +72,13 @@ const UpdateBook = () => {
           options={["Read", "Currently Reading", "Want to Read"]} />
         <Input name="overview" defaultValue={book.overview} label="Book Overview" full />
       </div>
-      <button className="btn btn-success mt-6 block mx-auto">Update Book</button>
+      <button className="btn mt-6 block mx-auto bg-[#4F7942] text-white">Update Book</button>
     </form>
   );
 };
 
 const Input = ({ name, defaultValue, label, readOnly = false, full = false }) => (
-  <fieldset className={`fieldset bg-green-50 border-base-300 rounded-box border p-4 ${full ? "md:col-span-2" : ""}`}>
+  <fieldset className={`fieldset bg-green-100 border-base-300 rounded-box border p-4 ${full ? "md:col-span-2" : ""}`}>
     <label className="label">{label}</label>
     <input
       type="text"

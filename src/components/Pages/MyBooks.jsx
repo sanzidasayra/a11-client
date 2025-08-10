@@ -113,7 +113,7 @@ const MyBooks = () => {
                       </Link>
                       <button
                         onClick={() => handleDelete(book._id)}
-                        className="btn btn-xs sm:btn-sm btn-error text-white w-full sm:w-auto"
+                        className="btn btn-xs sm:btn-sm bg-red-700 text-white w-full sm:w-auto"
                       >
                         Delete
                       </button>

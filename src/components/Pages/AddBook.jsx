@@ -42,7 +42,8 @@ const AddBook = () => {
   };
 
   return (
-    <div className="px-4 sm:px-8 pb-10 mt-20 border border-[#808000] rounded-3xl shadow-2xl bg-gradient-to-r from-[#4F7942] to-[#808000] w-11/12 sm:w-10/12 md:w-10/12 lg:w-8/12 mx-auto">
+    <div className="pt-10">
+      <div className="px-4 sm:px-8 pb-10 mt-15 border border-[#808000] rounded-3xl shadow-2xl bg-gradient-to-r from-[#4F7942] to-[#808000] w-11/12 sm:w-10/12 md:w-10/12 lg:w-8/12 mx-auto mb-">
       <div className="text-center py-10">
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-green-900">
           Add Books
@@ -189,6 +190,8 @@ const AddBook = () => {
         </div>
       </form>
     </div>
+    </div>
+
   );
 };
 

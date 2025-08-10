@@ -261,7 +261,7 @@ const BookDetails = () => {
                 {book.status === "Want to Read" && (
                   <button
                     onClick={() => updateReadingStatus("Currently Reading")}
-                    className="px-4 py-2 bg-blue-700 text-white rounded-full hover:bg-blue-800"
+                    className="px-4 py-2 bg-gradient-to-r from-[#4F7942] to-[#808000] text-white rounded-full whitespace-nowrap"
                   >
                     Start Reading
                   </button>
@@ -303,7 +303,7 @@ const BookDetails = () => {
               <button
                 onClick={upvoteBook}
                 disabled={upvoting}
-                className="px-4 py-2 bg-green-700 text-white rounded-full hover:bg-green-800 disabled:opacity-50"
+                className="px-4 py-2 bg-[#4F7942] text-white rounded-full hover:bg-[#808000] disabled:opacity-50"
               >
                 {upvoting ? "Upvoting..." : "Upvote"}
               </button>
@@ -329,7 +329,7 @@ const BookDetails = () => {
                         setEditingReview(review._id);
                         setReviewText(review.reviewText);
                       }}
-                      className="text-blue-500"
+                      className="text-[#4F7942]"
                     >
                       Edit
                     </button>
@@ -360,7 +360,7 @@ const BookDetails = () => {
           {editingReview ? (
             <button
               onClick={editReview}
-              className="mt-2 px-6 py-2 bg-blue-700 text-white rounded-full hover:bg-blue-800"
+              className="mt-2 px-6 py-2 bg-gradient-to-r from-[#4F7942] to-[#808000] text-white"
             >
               Edit Review
             </button>

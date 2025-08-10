@@ -14,6 +14,7 @@ import ViewDetailsBook from "../Pages/ViewDetailsBook";
 import ErrorPage from "../ErrorPage";
 import UpdateBook from "../Pages/UpdateBook";
 import PrivateRoute from "../../PrivateRoute";
+import AboutUs from "../Pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
       {
         path: 'register',
         Component: Register
+      },
+      {
+        path: 'about',
+        Component: AboutUs
       }
     ]
   }

@@ -33,7 +33,6 @@ const PopularBooks = ({ books }) => {
             key={book._id}
             className="flex flex-col bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform "
           >
-            {/* Image container with fixed aspect ratio */}
             <div className="relative w-full aspect-[3/4] rounded-t-3xl overflow-hidden">
               <img
                 src={

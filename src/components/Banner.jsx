@@ -21,7 +21,6 @@ const Banner = () => {
         modules={[Parallax, Autoplay, Pagination]}
         className="mySwiper h-full"
       >
-        {/* Parallax Background */}
         <div
           slot="container-start"
           className="absolute top-0 left-0 w-[130%] h-full bg-cover bg-center"
@@ -32,7 +31,6 @@ const Banner = () => {
           data-swiper-parallax="-23%"
         ></div>
 
-        {/* Slide 1 */}
         <SwiperSlide>
           <div className="flex flex-col justify-center h-full text-white px-4 sm:px-10 md:px-20 bg-black/50">
             <h2
@@ -50,7 +48,6 @@ const Banner = () => {
           </div>
         </SwiperSlide>
 
-        {/* Slide 2 */}
         <SwiperSlide>
           <div className="flex flex-col justify-center h-full text-white px-4 sm:px-10 md:px-20 bg-black/50">
             <h2
@@ -68,7 +65,6 @@ const Banner = () => {
           </div>
         </SwiperSlide>
 
-        {/* Slide 3 */}
         <SwiperSlide>
           <div className="flex flex-col justify-center h-full text-white px-4 sm:px-10 md:px-20 bg-black/50">
             <h2

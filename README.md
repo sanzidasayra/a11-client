@@ -10,7 +10,7 @@ StoryMint is a vibrant, community-driven web platform that helps readers discove
 [🔗 Visit StoryMint](https://aelevenclient.vercel.app/)
 
 ## 🖼 Screenshot
-![Plant Care StoryMint](https://i.ibb.co.com/5XQCtYZ4/Screenshot-2025-08-08-191555.png)
+![Plant Care StoryMint](https://i.ibb.co.com/yF4dTKsf/Screenshot-2025-08-11-075005.png)
 
 
 

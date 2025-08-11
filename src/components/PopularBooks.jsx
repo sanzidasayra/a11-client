@@ -19,10 +19,10 @@ const PopularBooks = ({ books }) => {
   return (
     <>
       <div className="space-y-4 text-center mt-5 mb-10 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-green-900">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-green-900 dark:text-gray-100">
           Popular Books
         </h1>
-        <p className="text-base sm:text-lg md:text-xl text-green-900 max-w-4xl mx-auto">
+        <p className="text-base sm:text-lg md:text-xl text-green-900 dark:text-gray-400 max-w-4xl mx-auto">
           Discover the most loved books among readers! This section highlights top-rated and most upvoted titles. Whether you're into fiction, fantasy, or non-fiction, these popular picks are trending for all the right reasons. Dive into great reads today!
         </p>
       </div>
@@ -31,7 +31,7 @@ const PopularBooks = ({ books }) => {
         {popularBooks.map((book) => (
           <div
             key={book._id}
-            className="flex flex-col bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 transform "
+            className="flex flex-col bg-white dark:bg-gray-800 rounded-3xl shadow-lg dark:shadow-gray-900 hover:shadow-2xl dark:hover:shadow-black transition-shadow duration-300 transform"
           >
             <div className="relative w-full aspect-[3/4] rounded-t-3xl overflow-hidden">
               <img
@@ -45,14 +45,14 @@ const PopularBooks = ({ books }) => {
             </div>
 
             <div className="flex flex-col flex-grow px-6 py-4">
-              <h2 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 truncate">
+              <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2 truncate">
                 {book.title}
               </h2>
-              <p className="text-sm sm:text-base text-gray-700 flex-grow">
+              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-400 flex-grow">
                 {book.overview ? book.overview.slice(0, 100) + "..." : "No description available."}
               </p>
 
-              <div className="flex items-center mt-4 text-green-700 gap-2 justify-center ">
+              <div className="flex items-center mt-4 text-green-700 dark:text-gray-400 gap-2 justify-center">
                 <FaThumbsUp />
                 <span className="font-semibold">{book.upvote || 0} upvotes</span>
               </div>
@@ -60,7 +60,7 @@ const PopularBooks = ({ books }) => {
 
             <button
               onClick={() => handleViewDetails(book._id)}
-              className="mt-auto btn bg-gradient-to-r from-[#4F7942] to-[#808000] text-white font-semibold py-3 rounded-b-3xl text-center hover:opacity-90 transition"
+              className="mt-auto btn bg-gradient-to-r from-[#4F7942] to-[#808000] dark:from-gray-800 dark:to-gray-700 dark:border dark:border-gray-700 text-white font-semibold py-3 rounded-b-3xl text-center hover:opacity-90 transition"
             >
               See More
             </button>

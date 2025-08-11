@@ -15,107 +15,114 @@ const Navbar = () => {
   };
 
   const navLinkClass = ({ isActive }) =>
-    isActive
-      ? "bg-[#4F7942] text-white font-semibold px-3 py-2 rounded"
-      : "hover:text-green-700 px-3 py-2";
+  isActive
+    ? "bg-[#4F7942] text-white font-semibold px-3 py-2 rounded dark:bg-gray-700 dark:text-gray-300"
+    : "hover:text-green-700 dark:hover:text-green-300 px-3 py-2";
 
   return (
-   <nav className="fixed top-0 left-0 right-0 z-50 bg-green-50 shadow-md">
-  <div className="mx-auto px-2 sm:px-4 max-w-screen-xl w-full flex items-center h-16">
-    <div className="flex items-center h-16 w-full">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-green-100 dark:bg-gray-900 shadow-md transition-colors duration-300">
+      <div className="mx-auto px-2 sm:px-4 max-w-screen-xl w-full flex items-center h-16">
+        <div className="flex items-center h-16 w-full">
 
-      <div className="flex items-center gap-2 ml-6">
-  <img src={logo} alt="StoryMint Logo" className="h-10 hidden sm:block" />
-  <span className="text-xl font-bold text-green-900 relative top-1">StoryMint</span>
-</div>
+          <div className="flex items-center gap-2 ml-6">
+            <img src={logo} alt="StoryMint Logo" className="h-10 hidden sm:block" />
+            <span className="text-xl font-bold text-green-900 dark:text-gray-200 relative top-1">
+              StoryMint
+            </span>
+          </div>
 
+          <div className="hidden lg:flex flex-1 justify-center space-x-4 text-sm items-center max-w-8/12 mx-auto">
+            <NavLink to="/" className={navLinkClass}>Home</NavLink>
 
-<div className="hidden lg:flex flex-1 justify-center space-x-4 text-sm items-center max-w-8/12 mx-auto">
-  <NavLink to="/" className={navLinkClass}>Home</NavLink>
+            {!user && (
+              <NavLink to="/about" className={navLinkClass}>About Us</NavLink>
+            )}
 
-  {!user && (
-    <NavLink to="/about" className={navLinkClass}>About Us</NavLink>
-  )}
+            <NavLink to="/bookshelf" className={navLinkClass}>Bookshelf</NavLink>
 
-  <NavLink to="/bookshelf" className={navLinkClass}>Bookshelf</NavLink>
+            {user ? (
+              <>
+                <NavLink to="/add-book" className={navLinkClass}>Add Book</NavLink>
+                <NavLink to="/my-books" className={navLinkClass}>My Books</NavLink>
+                <NavLink to="/profile" className={navLinkClass}>Profile</NavLink>
+              </>
+            ) : null}
+          </div>
 
-  {user ? (
-    <>
-      <NavLink to="/add-book" className={navLinkClass}>Add Book</NavLink>
-      <NavLink to="/my-books" className={navLinkClass}>My Books</NavLink>
-      <NavLink to="/profile" className={navLinkClass}>Profile</NavLink>
-    </>
-  ) : null}
-</div>
-
-
-      <div className="hidden lg:flex items-center gap-2">
-        {user ? (
-          <button
-            onClick={handleLogOut}
-            className="btn bg-red-800 text-white text-sm px-4 py-2 rounded flex items-center gap-2 hover:brightness-110 transition mr-6"
-          >
-            <LuLogOut size={18} />
-            Logout
-          </button>
-        ) : (
-          <>
-            <NavLink
-              to="/login"
-              className="btn bg-gradient-to-r from-[#4F7942] to-[#808000] text-white text-sm px-4 py-2 hover:brightness-110 transition rounded"
-            >
-              LogIn
-            </NavLink>
-            <NavLink
-              to="/register"
-              className="btn bg-gradient-to-r from-[#4F7942] to-[#808000] text-white text-sm px-4 py-2 hover:brightness-110 transition rounded mr-6"
-            >
-              Register
-            </NavLink>
-          </>
-        )}
-      </div>
-
-      <div className="lg:hidden dropdown dropdown-end ml-auto">
-        <button tabIndex={0} className="btn btn-ghost bg-[#4F7942]">
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2"
-            viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-        <ul
-          tabIndex={0}
-          className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-sm z-[999]"
-        >
-          <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
-          <li><NavLink to="/bookshelf" className={navLinkClass}>Bookshelf</NavLink></li>
-          {user ? (
-            <>
-              <li><NavLink to="/add-book" className={navLinkClass}>Add Book</NavLink></li>
-              <li><NavLink to="/my-books" className={navLinkClass}>My Books</NavLink></li>
-              <li><NavLink to="/profile" className={navLinkClass}>Profile</NavLink></li>
-              <li>
-                <button
-                  onClick={handleLogOut}
-                  className="text-left w-full px-3 py-2 hover:text-red-700"
+          <div className="hidden lg:flex items-center gap-2">
+            {user ? (
+              <button
+                onClick={handleLogOut}
+                className="btn bg-red-800 text-white text-sm px-4 py-2 rounded flex items-center gap-2 hover:brightness-110 transition mr-6 dark:bg-red-600 dark:hover:brightness-125"
+              >
+                <LuLogOut size={18} />
+                Logout
+              </button>
+            ) : (
+              <>
+                <NavLink
+                  to="/login"
+                  className="btn bg-gradient-to-r from-[#4F7942] to-[#808000] text-white text-sm px-4 py-2 hover:brightness-110 transition rounded dark:from-gray-800 dark:to-gray-700"
                 >
-                  Logout
-                </button>
-              </li>
-            </>
-          ) : (
-            <>
-              <li><NavLink to="/login" className={navLinkClass}>LogIn</NavLink></li>
-              <li><NavLink to="/register" className={navLinkClass}>Register</NavLink></li>
-            </>
-          )}
-        </ul>
+                  LogIn
+                </NavLink>
+                <NavLink
+                  to="/register"
+                  className="btn bg-gradient-to-r from-[#4F7942] to-[#808000] text-white text-sm px-4 py-2 hover:brightness-110 transition rounded mr-6 dark:from-gray-800 dark:to-gray-700"
+                >
+                  Register
+                </NavLink>
+              </>
+            )}
+          </div>
+
+          <div className="lg:hidden dropdown dropdown-end ml-auto">
+            <button
+              tabIndex={0}
+              className="btn btn-ghost bg-[#4F7942] dark:bg-gray-700 dark:text-white"
+            >
+              <svg
+                className="h-6 w-6"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 dark:bg-gray-800 rounded-box w-52 text-sm z-[999]"
+            >
+              <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
+              <li><NavLink to="/bookshelf" className={navLinkClass}>Bookshelf</NavLink></li>
+              {user ? (
+                <>
+                  <li><NavLink to="/add-book" className={navLinkClass}>Add Book</NavLink></li>
+                  <li><NavLink to="/my-books" className={navLinkClass}>My Books</NavLink></li>
+                  <li><NavLink to="/profile" className={navLinkClass}>Profile</NavLink></li>
+                  <li>
+                    <button
+                      onClick={handleLogOut}
+                      className="text-left w-full px-3 py-2 hover:text-red-700 dark:hover:text-red-400"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li><NavLink to="/login" className={navLinkClass}>LogIn</NavLink></li>
+                  <li><NavLink to="/register" className={navLinkClass}>Register</NavLink></li>
+                </>
+              )}
+            </ul>
+          </div>
+
+        </div>
       </div>
-
-    </div>
-  </div>
-</nav>
-
+    </nav>
   );
 };
 

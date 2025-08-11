@@ -79,39 +79,39 @@ const handleGoogleLogin = async () => {
 
 
   return (
-    <div className="hero bg-green-50 min-h-screen w-full p-0 mt-15 lg:mt-0">
+    <div className="hero bg-green-50 dark:bg-gray-800 min-h-screen w-full p-0 mt-15 lg:mt-0">
       <div className="hero-content flex flex-col-reverse lg:flex-row-reverse items-center gap-10 w-full max-w-6xl mx-auto px-4">
         {/* Animation */}
         <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-1/2">
           <Lottie animationData={registerData} loop={true} />
         </div>
 
-        <div className="card bg-base-100 w-full max-w-md lg:max-w-xl shadow-2xl p-4 sm:p-6 lg:p-8 mx-0 mt-10">
+        <div className="card bg-base-100 dark:bg-gray-800 w-full max-w-md lg:max-w-xl shadow-2xl p-4 sm:p-6 lg:p-8 mx-0 mt-10">
           <h1 className="font-semibold text-center text-3xl text-[#808000] py-4">Register Your Account</h1>
           <div className="card-body space-y-4 p-0">
             <form onSubmit={handleRegister} className="space-y-4">
               <div>
-                <label className="label">Name</label>
-                <input type="text" name="name" className="input input-bordered w-full" required placeholder="Enter your name" />
+                <label className="label text-gray-700 dark:text-gray-300">Name</label>
+                <input type="text" name="name" className="input input-bordered w-full bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600" required placeholder="Enter your name" />
               </div>
 
               <div>
-                <label className="label">Email</label>
-                <input type="email" name="email" className="input input-bordered w-full" required placeholder="Enter your email" />
+                <label className="label text-gray-700 dark:text-gray-300">Email</label>
+                <input type="email" name="email" className="input input-bordered w-full bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600" required placeholder="Enter your email" />
               </div>
 
               <div>
-                <label className="label">Photo URL</label>
-                <input type="text" name="photo" className="input input-bordered w-full" required placeholder="Photo URL" />
+                <label className="label text-gray-700 dark:text-gray-300">Photo URL</label>
+                <input type="text" name="photo" className="input input-bordered w-full bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600" required placeholder="Photo URL" />
               </div>
 
               <div>
-                <label className="label">Password</label>
+                <label className="label text-gray-700 dark:text-gray-300">Password</label>
                 <div className="relative">
                   <input
                     type={showPassword ? 'text' : 'password'}
                     name="password"
-                    className="input input-bordered w-full"
+                    className="input input-bordered w-full bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
                     placeholder="Enter your password"
                     required
                   />
@@ -129,7 +129,7 @@ const handleGoogleLogin = async () => {
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#4F7942] to-[#808000] transition duration-300 ease-in-out transform hover:scale-105 mt-4"
+                className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#4F7942] to-[#808000] dark:from-gray-700 dark:to-gray-900 transition duration-300 ease-in-out transform hover:scale-105 mt-4"
               >
                 Register
               </button>
@@ -142,10 +142,10 @@ const handleGoogleLogin = async () => {
                 <FcGoogle size={24} /> Register with Google
               </button>
 
-              <p className="font-bold text-center dark:text-gray-950 pt-5">
+              <p className="font-bold text-center text-gray-700 dark:text-gray-300 pt-5">
                 Already have an account?{' '}
                 <Link to="/login">
-                  <span className="text-[#808000] font-bold">Login</span>
+                  <span className="text-[#808000] dark:text-gray-400 font-bold">Login</span>
                 </Link>
               </p>
             </form>

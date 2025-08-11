@@ -21,16 +21,16 @@ const PersonalityMatcher = () => {
   return (
     <section className="my-16 px-4 sm:px-6 lg:px-8">
       <motion.div
-        className="max-w-8xl mx-auto bg-gradient-to-r from-green-100 to-lime-50 rounded-lg p-5 sm:p-8 shadow-md"
+        className="max-w-8xl mx-auto bg-gradient-to-r from-green-100 to-lime-50 dark:from-gray-800 dark:to-gray-700 rounded-lg p-5 sm:p-8 shadow-md"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-center text-green-900">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-center text-green-900 dark:text-gray-100">
           What Book Matches Your Personality?
         </h2>
 
-        <p className="text-center mb-6 text-sm sm:text-base max-w-2xl mx-auto text-green-800">
+        <p className="text-center mb-6 text-sm sm:text-base max-w-2xl mx-auto text-green-800 dark:text-gray-400">
           Select the type of vibe you love most and discover your match!
         </p>
 
@@ -39,11 +39,13 @@ const PersonalityMatcher = () => {
             <button
               key={type}
               onClick={() => setChoice(type)}
-              className={`px-4 py-2 rounded-md text-sm sm:text-base font-medium transition duration-200 capitalize ${
-                choice === type
-                  ? 'bg-green-700 text-white'
-                  : 'bg-green-200 text-green-900 hover:bg-green-300'
-              }`}
+              className={`px-4 py-2 rounded-md text-sm sm:text-base font-medium transition duration-200 capitalize
+                ${
+                  choice === type
+                    ? 'bg-green-700 text-white dark:bg-gray-600'
+                    : 'bg-green-200 text-green-900 hover:bg-green-300 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700'
+                }
+              `}
             >
               {type}
             </button>
@@ -53,21 +55,21 @@ const PersonalityMatcher = () => {
         <div className="text-center">
           <button
             onClick={handleSubmit}
-            className="bg-green-800 text-white px-6 py-2 text-sm sm:text-base rounded-md hover:brightness-110 transition"
+            className="bg-green-800 dark:bg-gray-800 text-white px-6 py-2 text-sm sm:text-base rounded-md hover:brightness-110 transition"
           >
             Show My Match
           </button>
 
           {matchedBook && (
             <motion.div
-              className="mt-6 text-base sm:text-lg font-semibold text-green-900 flex flex-col sm:flex-row items-center justify-center gap-2"
+              className="mt-6 text-base sm:text-lg font-semibold text-green-900 dark:text-green-300 flex flex-col sm:flex-row items-center justify-center gap-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
             >
-              <MdCelebration className="text-2xl text-green-700" />
-              <span>
-                Your Match is: <span className="text-green-700">{matchedBook}</span>
+              <MdCelebration className="text-2xl text-green-700 dark:text-gray-400" />
+              <span className='dark:text-gray-400'>
+                Your Match is: <span className="text-green-700 dark:text-gray-400">{matchedBook}</span>
               </span>
             </motion.div>
           )}

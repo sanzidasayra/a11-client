@@ -3,6 +3,7 @@ import { Outlet } from 'react-router';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import ThemeToggle from '../ThemeToggle';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Layout = () => {
 
@@ -26,8 +27,8 @@ const Layout = () => {
     return (
         <div className={
         isDarkMode
-          ? "dark:bg-gray-900 dark:text-gray-100"
-          : "bg-green-100 text-gray-800"
+          ? "dark:bg-gray-800 dark:text-gray-100"
+          : "bg-green-50 text-gray-800"
       }>
             <div className='w-8/12 mx-auto'>
                 <Navbar></Navbar>
@@ -35,12 +36,12 @@ const Layout = () => {
                 <Outlet context={{ isDarkMode, toggleDarkMode }}></Outlet>
             <Footer></Footer>
             <button
-        onClick={toggleDarkMode}
-        className='fixed bottom-10 right-10 p-3 rounded-full bg-gray-800 text-white shadow-lg
-                   dark:bg-gray-200 dark:text-black'
-      >
-        {isDarkMode ? "🌞 Light" : "🌙 Dark"}
-      </button>
+  onClick={toggleDarkMode}
+  className='fixed bottom-10 right-10 p-3 rounded-full bg-gray-800 text-white shadow-lg
+             dark:bg-gray-200 dark:text-black flex items-center justify-center'
+>
+  {isDarkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+</button>
         </div>
     );
 };

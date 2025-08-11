@@ -24,51 +24,49 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
 
- const handleLogIn = (e) => {
-  e.preventDefault();
-  const email = e.target.email.value.trim();
-  const password = e.target.password.value;
-  setError('');
+  const handleLogIn = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value.trim();
+    const password = e.target.password.value;
+    setError('');
 
-  if (!email || !password) {
-    const message = 'Please enter both email and password.';
-    setError(message);
-    toast.error(message);
-    return;
-  }
+    if (!email || !password) {
+      const message = 'Please enter both email and password.';
+      setError(message);
+      toast.error(message);
+      return;
+    }
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then(async () => {
-      // Once login is successful, get the JWT token
-      const tokenRes = await fetch('https://a11-server-s1ho.onrender.com/jwt', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }), 
+    signInWithEmailAndPassword(auth, email, password)
+      .then(async () => {
+        const tokenRes = await fetch('https://a11-server-s1ho.onrender.com/jwt', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+
+        const data = await tokenRes.json();
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+          toast.success('Login successful!');
+          navigate(from, { replace: true });
+        } else {
+          toast.error('Failed to fetch token');
+          setError('Failed to fetch token');
+        }
+      })
+      .catch((firebaseError) => {
+        console.error('Firebase login error:', firebaseError);
+        const errorMessage =
+          firebaseError.code === 'auth/invalid-credential' ||
+          firebaseError.code === 'auth/user-not-found' ||
+          firebaseError.code === 'auth/wrong-password'
+            ? 'Invalid email or password.'
+            : firebaseError.message || 'Login failed. Please try again.';
+        toast.error(errorMessage);
+        setError(errorMessage);
       });
-
-      const data = await tokenRes.json();
-      if (data.token) {
-        localStorage.setItem('token', data.token);
-        toast.success('Login successful!');
-        navigate(from, { replace: true });
-      } else {
-        toast.error('Failed to fetch token');
-        setError('Failed to fetch token');
-      }
-    })
-    .catch((firebaseError) => {
-      console.error("Firebase login error:", firebaseError);
-      const errorMessage =
-        firebaseError.code === 'auth/invalid-credential' ||
-        firebaseError.code === 'auth/user-not-found' ||
-        firebaseError.code === 'auth/wrong-password'
-          ? 'Invalid email or password.'
-          : firebaseError.message || 'Login failed. Please try again.';
-      toast.error(errorMessage);
-      setError(errorMessage);
-    });
-};
-
+  };
 
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
@@ -88,7 +86,7 @@ const Login = () => {
       toast.success('Google login successful!');
       navigate('/');
     } catch (googleError) {
-      console.error("Google login error:", googleError);
+      console.error('Google login error:', googleError);
       toast.error(`Google login failed: ${googleError.message}`);
       setError(googleError.message);
     }
@@ -110,45 +108,50 @@ const Login = () => {
         setIsResetMode(false);
       })
       .catch((error) => {
-        console.error("Error resetting password:", error);
+        console.error('Error resetting password:', error);
         setError('Failed to send reset email. Please try again later.');
       });
   };
 
   return (
-    <div className="min-h-screen bg-green-50 flex items-center justify-center px-4 py-10 mt-15 lg:mt-0">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-800 flex items-center justify-center px-4 py-10 mt-15 lg:mt-0 transition-colors duration-500">
       <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-10 w-full max-w-6xl">
         
-        {/* Animation */}
         <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:w-1/2">
           <Lottie animationData={loginData} loop={true} />
         </div>
 
-        {/* Card */}
-        <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
-          <h1 className="text-3xl font-semibold text-center text-[#808000] pt-6">Login Your Account</h1>
+        <div className="card bg-white dark:bg-gray-800 w-full max-w-sm shadow-2xl transition-colors duration-500">
+          <h1 className="text-3xl font-semibold text-center text-gray-800 dark:text-gray-200 pt-6">
+            Login Your Account
+          </h1>
           <div className="card-body">
             {!isResetMode ? (
               <form onSubmit={handleLogIn} className="space-y-4">
                 <div>
-                  <label className="label">Email</label>
-                  <input type="email" name="email" className="input input-bordered w-full" placeholder="Email" />
+                  <label className="label text-gray-700 dark:text-gray-300">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    className="input input-bordered w-full bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
+                    placeholder="Email"
+                  />
                 </div>
 
                 <div>
-                  <label className="label">Password</label>
+                  <label className="label text-gray-700 dark:text-gray-300">Password</label>
                   <div className="relative">
                     <input
                       type={showPassword ? 'text' : 'password'}
                       name="password"
-                      className="input input-bordered w-full pr-10"
+                      className="input input-bordered w-full pr-10 bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
                       placeholder="Enter your password"
                       required
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="btn btn-ghost btn-xs absolute top-2 right-4"
+                      className="btn btn-ghost btn-xs absolute top-2 right-4 text-gray-700 dark:text-gray-300"
                     >
                       {showPassword ? <FaEyeSlash /> : <FaEye />}
                     </button>
@@ -156,24 +159,31 @@ const Login = () => {
                 </div>
 
                 <div>
-                  <a onClick={handleForgetPassword} className="link link-hover">Forgot password?</a>
+                  <a
+                    onClick={handleForgetPassword}
+                    className="link link-hover text-gray-700 dark:text-gray-300 cursor-pointer"
+                  >
+                    Forgot password?
+                  </a>
                 </div>
 
-                <button className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#4F7942] to-[#808000] hover:scale-105 transition">
+                <button
+                  className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-gray-700 to-gray-900 hover:scale-105 transition transform"
+                >
                   Login
                 </button>
 
                 <button
                   type="button"
                   onClick={handleGoogleLogin}
-                  className="btn btn-outline w-full flex items-center justify-center gap-2 mt-3"
+                  className="btn btn-outline w-full flex items-center justify-center gap-2 mt-3 text-gray-900 dark:text-gray-100 border-gray-700 dark:border-gray-300"
                 >
                   <FcGoogle size={24} /> Login with Google
                 </button>
 
-                <p className="text-center text-gray-700 pt-5">
+                <p className="text-center text-gray-700 dark:text-gray-300 pt-5">
                   Don’t have an account?{' '}
-                  <Link to="/register" className="text-[#808000] font-bold hover:underline">
+                  <Link to="/register" className="text-gray-500 dark:text-gray-400 font-bold hover:underline">
                     Register
                   </Link>
                 </p>
@@ -182,25 +192,27 @@ const Login = () => {
               </form>
             ) : (
               <div className="space-y-4">
-                <label className="label">Enter your email to reset the password</label>
+                <label className="label text-gray-700 dark:text-gray-300">
+                  Enter your email to reset the password
+                </label>
                 <input
                   type="email"
                   value={emailForReset}
                   onChange={(e) => setEmailForReset(e.target.value)}
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full bg-gray-50 dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600"
                   placeholder="Email"
                 />
                 <button
                   type="button"
                   onClick={handleResetPassword}
-                  className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-[#4F7942] to-[#808000] hover:scale-105 transition"
+                  className="w-full py-3 rounded-xl font-bold text-white bg-gradient-to-r from-gray-700 to-gray-900 hover:scale-105 transition transform"
                 >
                   Reset Password
                 </button>
-                <p className="text-center text-gray-700 pt-5">
+                <p className="text-center text-gray-700 dark:text-gray-300 pt-5">
                   <span
                     onClick={() => setIsResetMode(false)}
-                    className="text-[#808000] font-bold hover:underline cursor-pointer"
+                    className="text-gray-500 dark:text-gray-400 font-bold hover:underline cursor-pointer"
                   >
                     Back to Login
                   </span>

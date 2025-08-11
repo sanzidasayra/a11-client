@@ -36,15 +36,14 @@ const promotions = [
 const SalesPromotion = () => {
   const [speed, setSpeed] = useState("20s");
 
-  // Responsive animation speed
   useEffect(() => {
     const updateSpeed = () => {
       if (window.innerWidth < 640) {
-        setSpeed("10s"); // mobile faster
+        setSpeed("10s"); 
       } else if (window.innerWidth < 1024) {
-        setSpeed("15s"); // tablet medium speed
+        setSpeed("15s"); 
       } else {
-        setSpeed("20s"); // desktop normal speed
+        setSpeed("20s"); 
       }
     };
     updateSpeed();
@@ -62,7 +61,7 @@ const SalesPromotion = () => {
           {[...promotions, ...promotions].map(({ id, title, desc, img }, index) => (
             <div
               key={id + "-" + index}
-              className="bg-gradient-to-r from-[#4F7942] to-[#808000] text-white rounded-xl px-4 sm:px-6 py-3 sm:py-4 min-w-[220px] sm:min-w-[280px] shadow-lg flex-shrink-0 flex items-center space-x-3 sm:space-x-4"
+              className="bg-gradient-to-r from-[#4F7942] to-[#808000] dark:from-gray-800 dark:to-gray-700 text-white rounded-xl px-4 sm:px-6 py-3 sm:py-4 min-w-[220px] sm:min-w-[280px] shadow-lg flex-shrink-0 flex items-center space-x-3 sm:space-x-4"
             >
               <img
                 src={img}
@@ -71,7 +70,7 @@ const SalesPromotion = () => {
               />
               <div>
                 <h3 className="font-bold text-sm sm:text-lg">{title}</h3>
-                <p className="text-xs sm:text-sm">{desc}</p>
+                <p className="text-xs sm:text-sm dark:text-gray-400">{desc}</p>
               </div>
             </div>
           ))}

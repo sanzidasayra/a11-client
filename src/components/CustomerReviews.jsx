@@ -44,7 +44,7 @@ function StarRating({ rating }) {
       {[...Array(5)].map((_, i) => (
         <svg
           key={i}
-          className={`w-5 h-5 ${i < rating ? "fill-current" : "text-gray-300"}`}
+          className={`w-5 h-5 ${i < rating ? "fill-current" : "text-gray-300"} dark:${i < rating ? "fill-yellow-400" : "text-gray-600"}`}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
@@ -60,23 +60,23 @@ function StarRating({ rating }) {
 const CustomerReviews = () => {
   return (
     <section className="max-w-8xl mx-auto px-6 ">
-      <h2 className="text-3xl font-bold text-center mb-10 text-green-900">
+      <h2 className="text-3xl font-bold text-center mb-10 text-green-900 dark:text-gray-100">
         What Our Readers Say
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6">
         {reviews.map(({ id, name, avatar, rating, comment }) => (
           <div
             key={id}
-            className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300"
+            className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:shadow-2xl transition-shadow duration-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:shadow-2xl"
           >
             <img
               src={avatar}
               alt={name}
               className="w-20 h-20 rounded-full mb-4 object-cover"
             />
-            <h3 className="text-xl font-semibold text-gray-900">{name}</h3>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100">{name}</h3>
             <StarRating rating={rating} />
-            <p className="mt-4 text-gray-600 italic">"{comment}"</p>
+            <p className="mt-4 text-gray-600 italic dark:text-gray-300">"{comment}"</p>
           </div>
         ))}
       </div>

@@ -41,26 +41,40 @@ const Profile = () => {
   }, [user?.email]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 pt-24">
-      <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 mb-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 pt-24
+                    bg-white dark:bg-gray-900
+                    ">
+      <div className="shadow-lg rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 mb-10
+                      bg-white dark:bg-gray-800
+                      ">
         <img
           src={user?.photoURL}
           alt="profile"
-          className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-[#4F7942]"
+          className="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover
+                     border-4 border-[#4F7942] dark:border-gray-500
+                     "
         />
         <div className="text-center sm:text-left">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 break-words">
+          <h2 className="text-xl sm:text-2xl font-bold
+                         text-gray-800 dark:text-gray-100 break-words
+                         ">
             {user?.displayName}
           </h2>
-          <p className="text-gray-600 break-words">{user?.email}</p>
-          <p className="mt-2 text-sm text-green-700 font-medium">
+          <p className="text-gray-600 dark:text-gray-300 break-words">{user?.email}</p>
+          <p className="mt-2 text-sm font-medium
+                        text-green-700 dark:text-gray-400
+                        ">
             Total Books: {books.length}
           </p>
         </div>
       </div>
 
-      <div className="bg-white shadow-lg rounded-2xl p-6">
-        <h3 className="text-lg sm:text-xl font-semibold  text-center">
+      <div className="shadow-lg rounded-2xl p-6
+                      bg-white dark:bg-gray-800
+                      ">
+        <h3 className="text-lg sm:text-xl font-semibold text-center
+                       text-gray-900 dark:text-gray-100
+                       ">
           Books by Category
         </h3>
         {categoryData.length ? (
@@ -86,17 +100,21 @@ const Profile = () => {
                     />
                   ))}
                 </Pie>
-                <Tooltip />
+                <Tooltip
+                  contentStyle={{ backgroundColor: '#2d3748', borderRadius: '8px', border: 'none' }}
+                  itemStyle={{ color: '#e2e8f0' }}
+                  labelStyle={{ color: '#cbd5e1' }}
+                />
                 <Legend
                   verticalAlign="bottom"
                   height={36}
-                  wrapperStyle={{ fontSize: '0.875rem' }}
+                  wrapperStyle={{ fontSize: '0.875rem', color: 'white' }}
                 />
               </PieChart>
             </ResponsiveContainer>
           </div>
         ) : (
-          <p className="text-center text-gray-500">No data to show</p>
+          <p className="text-center text-gray-500 dark:text-gray-400">No data to show</p>
         )}
       </div>
     </div>

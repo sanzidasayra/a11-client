@@ -68,7 +68,7 @@ const MyBooks = () => {
 
   return (
     <div className="px-4 sm:px-6 md:px-10 py-8 min-h-screen pt-20">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center text-green-800 mb-8">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center text-green-800 dark:text-gray-100 mb-8">
         My Books
       </h1>
 
@@ -79,7 +79,7 @@ const MyBooks = () => {
       ) : (
         <div className="overflow-x-auto max-w-7xl mx-auto">
           <table className="table w-full min-w-[640px] text-sm sm:text-base">
-            <thead className="bg-[#4F7942] text-green-950">
+            <thead className="bg-[#4F7942] text-green-950 dark:text-gray-100 dark:bg-gray-700">
               <tr>
                 <th>#</th>
                 <th>Cover</th>
@@ -107,7 +107,7 @@ const MyBooks = () => {
                     <div className="flex flex-col sm:flex-row gap-2">
                       <Link
                         to={`/update-book/${book._id}`}
-                        className="btn btn-xs sm:btn-sm btn-outline text-[#4F7942] w-full sm:w-auto"
+                        className="btn btn-xs sm:btn-sm btn-outline text-[#4F7942] dark:text-gray-400 dark:hover:bg-gray-600 w-full sm:w-auto"
                       >
                         Update
                       </Link>
